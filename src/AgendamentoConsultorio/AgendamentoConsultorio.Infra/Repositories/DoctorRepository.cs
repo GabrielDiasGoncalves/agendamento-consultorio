@@ -25,21 +25,12 @@ namespace AgendamentoConsultorio.Infra.Repositories
         {
             try
             {
-                MySqlConnection connection;
-                using (connection = new MySqlConnection(_connectionString))
+                using (var connection = new MySqlConnection(_connectionString))
                 {
                     connection.Open();
 
-                    var id = connection.ExecuteScalar<int>(
-                        _INSERTCOMMAND, 
-                        new { Name = obj.Name, Specialty = obj.Specialty, CPF = obj.CPF, Salary = obj.Salary, Address = obj.Address, CEP = obj.CEP }
-                    );
-
-
-                    Console.WriteLine(id);
+                    var id = connection.ExecuteScalar<int>(_INSERTCOMMAND, obj);
                 }
-
-                Console.WriteLine(connection.State);
             }
             catch (Exception e)
             {
