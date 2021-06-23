@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AgendamentoConsultorio.Domain.Models;
+using AgendamentoConsultorio.Services;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -17,9 +19,15 @@ namespace AgendamentoConsultorio.UIDesktop.Views
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        private readonly DoctorService _service;
+
+        public MainWindow(DoctorService service)
         {
             InitializeComponent();
+
+            _service = service;
+
+            Console.WriteLine(_service);
         }
     }
 }

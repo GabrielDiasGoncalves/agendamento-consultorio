@@ -16,6 +16,7 @@ namespace AgendamentoConsultorio.UIDesktop
     public partial class App : Application
     {
         private ServiceProvider _serviceProvider;
+
         public App()
         {
             var services = new ServiceCollection();
@@ -25,7 +26,11 @@ namespace AgendamentoConsultorio.UIDesktop
 
         private void ConfigureServices(IServiceCollection services)
         {
+            var connectionString = ConfigurationManager.AppSettings["connectionString"];
+            
             services.AddWindows();
+            services.AddRepositories(connectionString);
+            services.AddServices();
         }
 
         private void OnStartup(object sender, StartupEventArgs e)
