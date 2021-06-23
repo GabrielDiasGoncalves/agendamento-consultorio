@@ -6,4 +6,10 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\AgendamentoConsultorio.Domain\AgendamentoConsultorio.Domain.csproj" />
+    <ProjectReference Include="..\AgendamentoConsultorio.Infra\AgendamentoConsultorio.Infra.csproj" />
+    <ProjectReference Include="..\AgendamentoConsultorio.Services\AgendamentoConsultorio.Services.csproj" />
+  </ItemGroup>
+
 </Project>

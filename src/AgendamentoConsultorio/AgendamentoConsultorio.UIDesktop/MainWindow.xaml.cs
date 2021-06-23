@@ -1,4 +1,8 @@
-﻿using System;
+﻿using AgendamentoConsultorio.Domain.Models;
+using AgendamentoConsultorio.Infra.Repositories;
+using AgendamentoConsultorio.Services;
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +27,11 @@ namespace AgendamentoConsultorio.UIDesktop
         public MainWindow()
         {
             InitializeComponent();
+
+            var service = new DoctorService(new DoctorRepository("server=localhost;database=db_clinic;userid=developer;password=1234567;"));
+            service.CreateNewDoctor(
+                new Doctor("Gabriel", "Alergologista", "50156461862", 1200.5m, "Avenida 9 de Julho", "01313000")
+            );
         }
     }
 }
