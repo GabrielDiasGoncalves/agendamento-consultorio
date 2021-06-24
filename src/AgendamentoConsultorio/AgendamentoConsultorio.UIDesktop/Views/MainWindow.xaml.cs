@@ -29,5 +29,12 @@ namespace AgendamentoConsultorio.UIDesktop.Views
 
             Console.WriteLine(_service);
         }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            var resultado = MessageBox.Show("Deseja sair?", "Sair", MessageBoxButton.YesNo, MessageBoxImage.Information);
+
+            e.Cancel = resultado == MessageBoxResult.No;
+        }
     }
 }
